@@ -1,240 +1,440 @@
 <!DOCTYPE html>
 <html lang="es">
 
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta name="description" content="">
-		<meta name="author" content="">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="SonoMapa es el mapa colaborativo del ruido en Lima. Consulta el nivel de ruido de calles, rutas y lugares antes de llegar, con mediciones de la comunidad.">
+	<meta name="author" content="SonoMapa">
+	<meta name="theme-color" content="#2F7A5D">
 
-		<title>SonoMap</title>
+	<meta property="og:title" content="SonoMapa · Sabe cuánto ruido hay antes de llegar">
+	<meta property="og:description" content="Mapa colaborativo del ruido en Lima. Elige por dónde caminar y dónde estudiar.">
+	<meta property="og:type" content="website">
+	<meta property="og:image" content="images/IM1.png">
 
-		<!-- #Bootstrap Core CSS -->
-		<link type="text/css" href="css/bootstrap.min.css" rel="stylesheet">
+	<title>SonoMapa · Mapa colaborativo del ruido en Lima</title>
 
-		<!-- #SLIDER REVOLUTION 4.x CSS SETTINGS -->
-		<link rel="stylesheet" type="text/css" href="css/extralayers.css" media="screen">
-		<link rel="stylesheet" type="text/css" href="css/settings.css" media="screen">
+	<!-- Tipografía -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
 
-		<!-- #RELATED CSS -->
-		<link type="text/css" href="css/font-awesome.min.css" rel="stylesheet">
-		<link type="text/css" href="css/nivo-lightbox.css" rel="stylesheet">
-		<link type="text/css" href="css/default1.css" rel="stylesheet">
-		<link type="text/css" href="css/animate.css" rel="stylesheet">
+	<!-- Estilos de la página -->
+	<link rel="stylesheet" href="css/main.css">
 
-		<!-- #SMARTADMIN LANDING CSS -->
-		<link type="text/css" href="css/main.css" rel="stylesheet">
-		<link type="text/css" href="color/default.css" rel="stylesheet">
-
-		<!-- #FAVICONS -->
-		<link rel="shortcut icon" href="img/favicon/favicon.ico" type="image/x-icon">
-		<link rel="icon" href="img/favicon/favicon.ico" type="image/x-icon">
-
-		<!-- #GOOGLE FONT -->
-		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,300,400,700">
-
-	</head>
-
+	<!-- Favicons -->
+	<link rel="shortcut icon" href="img/favicon/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="img/favicon/favicon.ico" type="image/x-icon">
+</head>
 
 <!--
+	TABLA DE CONTENIDO
+	=====================================
+	01. Header / menú
+	02. Propuesta de valor (hero)
+	03. Problema
+	04. Cómo funciona
+	05. Funciones
+	06. Segmentos (para quién)
+	07. Municipalidades
+	08. Equipo
+	09. FAQ
+	10. Descarga (CTA final)
+	11. Footer
+-->
 
-	TABLE OF CONTENTS.
-	
-	Use search to find needed section.
-	
-	===================================================================
-	
-	|  01. #MENU                                                      |
-	|  02. #propuesta de valor                                                   |
-	|  03. #problema                                                   |
-	|  04. #cómo funciona                                                       |
-	|  05. #funciones                                                 |
-	|  06. #segmentos                                           |
-	|  07. #municipalidades                                                   |
-	|  08. #equipo                                                   |
-	|  09. #FAQ.                                                 |
-	|                                            |
-	
-	===================================================================
-	
-	-->
+<body>
 
+	<!-- Íconos (sprite SVG, sin dependencias externas) -->
+	<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+		<defs>
+			<symbol id="i-map" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+			<symbol id="i-route" viewBox="0 0 24 24"><circle cx="6" cy="19" r="3"/><path d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15"/><circle cx="18" cy="5" r="3"/></symbol>
+			<symbol id="i-book" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></symbol>
+			<symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></symbol>
+			<symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></symbol>
+			<symbol id="i-refresh" viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></symbol>
+			<symbol id="i-nav" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></symbol>
+			<symbol id="i-home" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></symbol>
+			<symbol id="i-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></symbol>
+		</defs>
+	</svg>
 
-<body data-spy="scroll">
+	<!-- 01. HEADER / MENÚ -->
+	<header class="site-header">
+		<div class="container header-inner">
+			<a href="index.html" class="brand" aria-label="SonoMapa, ir al inicio">
+				<img src="images/IM2.png" alt="SonoMapa">
+			</a>
 
-		<div class="container">
+			<nav class="main-nav" aria-label="Principal">
+				<ul>
+					<li><a href="#funciona">Cómo funciona</a></li>
+					<li><a href="#funciones">Funciones</a></li>
+					<li><a href="#segmentos">Para quién</a></li>
+					<li><a href="#municipalidad">Municipalidades</a></li>
+					<li><a href="#equipo">Equipo</a></li>
+				</ul>
+			</nav>
 
-			<!-- Section: #MENU -->
-			<ul id="gn-menu" class="gn-menu-main">
-            
-            <li class="hidden-xs" style="margin-left: 80px;">
-                <a href="index.html"><img src="images/IM2.png" alt="logo" style="width: 180px; margin-top: -3px;" /></a>
-            </li>
-            <nav>
-               <ul class="menu-texto-izquierda">
-                <li><a href="#funciona" >Cómo funciona</a></li>
-                <li><a href="#team">Funciones</a></li>
-                <li><a href="#features">Para quién</a></li>
-                <li><a href="#screenshots">Municipalidades</a></li>
-                <li><a href="#updates">Equipo</a></li>
-            </ul>
-            </nav>
-			<li class="menu-derecha-btn">
-            <a href="#descargar" class="btn-descargar">Descargar app</a>
-        </li>
-        </ul>
-			<!-- Section: #MENU -->
-		
+			<a href="#descargar" class="boton boton-primario boton-sm">Descargar app</a>
 		</div>
+	</header>
 
-<!-- Propuesta -->
-	<section class="propuesta">
-    <div class="container propuesta-container">
-        <div class="hero-grid">
-            
-            <!-- Columna Izquierda: Textos y Botones -->
-            <div class="hero-content">
-                <span class="text-label text-verde">MAPA COLABORATIVO DEL RUIDO EN LIMA</span>
-                
-                <h1 class="hero-title">
-                    Sabe cuánto ruido hay<br>antes de llegar.
-                </h1>
-                
-                <p class="hero-description">
-                    SonoMapa te muestra el nivel de ruido de calles, rutas y lugares de<br class="desktop-only">
-                    Lima con mediciones de la comunidad, para que elijas por dónde<br class="desktop-only">
-                    caminar y dónde estudiar.
-                </p>
-                
-                <div class="cta-group">
-                    <a href="#" class="btn btn-primary">Descargar para Android</a>
-                    <a href="#como-funciona" class="btn btn-secondary">Ver cómo funciona</a>
-                </div>
-                
-                <p class="text-caption">
-                    Gratis · No graba audio · Mediciones anónimas
-                </p>
-            </div>
+	<main>
 
-            <!-- Columna Derecha: Mockup Celular -->
-            <div class="hero-mockup">
-                <!-- Reemplaza 'ruta/a/tu/imagen.png' por la ruta de tu archivo de imagen -->
-                <img src="images/IM1.png" alt="SonoMapa App Preview">
-            </div>
+		<!-- 02. PROPUESTA DE VALOR -->
+		<section class="propuesta">
+			<div class="container">
+				<div class="hero-grid">
 
-        </div>
-    </div>
-</section>
+					<div class="hero-content">
+						<span class="text-label">Mapa colaborativo del ruido en Lima</span>
 
- 
-		<section id="problema" class="problem-section">
-    <div class="container">
-        
-        <!-- Encabezado de la sección -->
-        <div class="problem-header">
-            <span class="text-label text-verde-problema">EL PROBLEMA</span>
-            <h2 class="problem-title">El ruido de Lima no se ve, pero se siente todos los días.</h2>
-        </div>
+						<h1 class="hero-title">Sabe cuánto ruido hay antes de llegar.</h1>
 
-        <!-- Fila de Tarjetas Estadísticas (Grid de 3 columnas) -->
-        <div class="stats-grid">
-            
-            <!-- Tarjeta 1 -->
-            <div class="stat-card">
-                <div class="stat-number">90%+</div>
-                <p class="stat-text">de los puntos monitoreados por el OEFA en Lima superan el estándar de ruido (PUCP, 2024)</p>
-            </div>
+						<p class="hero-description">
+							SonoMapa te muestra el nivel de ruido de calles, rutas y lugares de Lima
+							con mediciones de la comunidad, para que elijas por dónde caminar y dónde estudiar.
+						</p>
 
-            <!-- Tarjeta 2 -->
-            <div class="stat-card">
-                <div class="stat-number">10</div>
-                <p class="stat-text">puntos críticos de Lima superan los 80 dBA de forma continua (PUCP, 2024)</p>
-            </div>
+						<div class="cta-group">
+							<a href="#descargar" class="boton boton-primario">Descargar para Android</a>
+							<a href="#funciona" class="boton boton-secundario">Ver cómo funciona</a>
+						</div>
 
-            <!-- Tarjeta 3 -->
-            <div class="stat-card">
-                <div class="stat-number">3 de 3</div>
-                <p class="stat-text">estudiantes que entrevistamos tuvieron que cambiar de lugar de estudio por el ruido</p>
-            </div>
-
-        </div>
-
-    </div>
-		</section>
-
-
-		<!-- Section: COMO FUNCIONA  -->
-		 <section id="funciona" class="how-section">
-				<div class="container">
-					
-					<!-- Encabezado de la sección -->
-					<div class="how-header">
-						<span class="text-label text-verde-how">CÓMO FUNCIONA</span>
-						<h2 class="how-title">Tres pasos, sin complicaciones</h2>
+						<p class="text-caption">Gratis · No graba audio · Mediciones anónimas</p>
 					</div>
 
-					<!-- Fila de Tarjetas de Pasos (Grid de 3 columnas) -->
-					<div class="steps-grid">
-						
-						<!-- Paso 1 -->
-						<div class="step-card">
-							<div class="step-number">1</div>
-							<h3 class="step-card-title">Consulta</h3>
-							<p class="step-text">Busca una calle, lugar o destino y mira su nivel de ruido ahora y por horario.</p>
-						</div>
-
-						<!-- Paso 2 -->
-						<div class="step-card">
-							<div class="step-number">2</div>
-							<h3 class="step-card-title">Decide</h3>
-							<p class="step-text">Elige la ruta silenciosa o el lugar más tranquilo según tu tiempo.</p>
-						</div>
-
-						<!-- Paso 3 -->
-						<div class="step-card">
-							<div class="step-number">3</div>
-							<h3 class="step-card-title">Aporta</h3>
-							<p class="step-text">Mide 30 segundos con tu celular y ayuda a que el mapa esté al día.</p>
-						</div>
-
+					<div class="hero-mockup">
+						<img src="images/IM1.png" alt="Vista previa de la app SonoMapa con el mapa de ruido de Lima" width="420" height="600">
 					</div>
 
 				</div>
-			</section>
-
-
-
-<!-- /Section: FUNCIONES -->
-
-		<section id="funciones" class="funciones">
-			
+			</div>
 		</section>
-		
 
-<!-- /Section: segmentos-->
+		<!-- 03. PROBLEMA -->
+		<section id="problema" class="section section-crema">
+			<div class="container">
 
-		<section id="segmentos" class="segmentos">
-			
+				<div class="section-head">
+					<span class="text-label">El problema</span>
+					<h2 class="section-title">El ruido de Lima no se ve, pero se siente todos los días.</h2>
+				</div>
+
+				<div class="stats-grid">
+					<div class="stat-card">
+						<div class="stat-number">90%+</div>
+						<p class="stat-text">de los puntos monitoreados por el OEFA en Lima superan el estándar de ruido (PUCP, 2024)</p>
+					</div>
+
+					<div class="stat-card">
+						<div class="stat-number">10</div>
+						<p class="stat-text">puntos críticos de Lima superan los 80 dBA de forma continua (PUCP, 2024)</p>
+					</div>
+
+					<div class="stat-card">
+						<div class="stat-number">3 de 3</div>
+						<p class="stat-text">estudiantes que entrevistamos tuvieron que cambiar de lugar de estudio por el ruido</p>
+					</div>
+				</div>
+
+			</div>
 		</section>
-		
-	<!-- MUNICIPALIDADES-->
 
-		<section id="municipalidad" class="municipalidad">
-			
-		</section>			
-								
-<!-- EQUIPOS-->
+		<!-- 04. CÓMO FUNCIONA -->
+		<section id="funciona" class="section section-blanca">
+			<div class="container">
 
-		<section id="equipo" class="equipo">
-			
-		</section>	
-		
-<!-- PREGUNTAS Y RESPUESTAS-->
+				<div class="section-head">
+					<span class="text-label">Cómo funciona</span>
+					<h2 class="section-title">Tres pasos, sin complicaciones</h2>
+				</div>
 
-		<section id="FAQ" class="FAQ">
-			
-		</section>	
+				<div class="steps-grid">
+					<div class="step-card">
+						<div class="step-number">1</div>
+						<h3 class="step-card-title">Consulta</h3>
+						<p class="step-text">Busca una calle, lugar o destino y mira su nivel de ruido ahora y por horario.</p>
+					</div>
 
-	</body>
+					<div class="step-card">
+						<div class="step-number">2</div>
+						<h3 class="step-card-title">Decide</h3>
+						<p class="step-text">Elige la ruta silenciosa o el lugar más tranquilo según tu tiempo.</p>
+					</div>
+
+					<div class="step-card">
+						<div class="step-number">3</div>
+						<h3 class="step-card-title">Aporta</h3>
+						<p class="step-text">Mide 30 segundos con tu celular y ayuda a que el mapa esté al día.</p>
+					</div>
+				</div>
+
+			</div>
+		</section>
+
+		<!-- 05. FUNCIONES -->
+		<section id="funciones" class="section section-crema">
+			<div class="container">
+
+				<div class="section-head">
+					<span class="text-label">Funciones</span>
+					<h2 class="section-title">Todo lo que necesitas para elegir un lugar tranquilo</h2>
+					<p class="section-lead">Datos hechos por la comunidad, pensados para decidir rápido.</p>
+				</div>
+
+				<div class="features-grid">
+
+					<article class="feature-card">
+						<div class="feature-icon"><svg class="icon" aria-hidden="true"><use href="#i-map"/></svg></div>
+						<h3 class="feature-title">Mapa de ruido de Lima</h3>
+						<p class="feature-text">Mira el nivel de ruido de calles y lugares con colores fáciles de leer, sin interpretar números.</p>
+					</article>
+
+					<article class="feature-card">
+						<div class="feature-icon"><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg></div>
+						<h3 class="feature-title">Ruido por horario</h3>
+						<p class="feature-text">Consulta cómo cambia el ruido durante el día para elegir la mejor hora para ir.</p>
+					</article>
+
+					<article class="feature-card">
+						<div class="feature-icon"><svg class="icon" aria-hidden="true"><use href="#i-route"/></svg></div>
+						<h3 class="feature-title">Rutas silenciosas</h3>
+						<p class="feature-text">Compara caminos hacia tu destino y elige el más tranquilo según el tiempo que tengas.</p>
+					</article>
+
+					<article class="feature-card">
+						<div class="feature-icon"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg></div>
+						<h3 class="feature-title">Lugares para estudiar</h3>
+						<p class="feature-text">Encuentra espacios tranquilos para concentrarte, antes de salir de casa.</p>
+					</article>
+
+					<article class="feature-card">
+						<div class="feature-icon"><svg class="icon" aria-hidden="true"><use href="#i-refresh"/></svg></div>
+						<h3 class="feature-title">Mide en 30 segundos</h3>
+						<p class="feature-text">Aporta una medición con tu celular y ayuda a que el mapa esté siempre actualizado.</p>
+					</article>
+
+					<article class="feature-card">
+						<div class="feature-icon"><svg class="icon" aria-hidden="true"><use href="#i-shield"/></svg></div>
+						<h3 class="feature-title">Privado por diseño</h3>
+						<p class="feature-text">No graba audio y las mediciones son anónimas. Solo se guarda el nivel de ruido.</p>
+					</article>
+
+				</div>
+
+				<div class="noise-legend" aria-label="Leyenda de niveles de ruido">
+					<span class="noise-legend-title">Así lees el mapa:</span>
+					<ul>
+						<li><span class="dot dot-bajo"></span> Tranquilo &lt;60 dB</li>
+						<li><span class="dot dot-medio"></span> Moderado 60–70 dB</li>
+						<li><span class="dot dot-alto"></span> Elevado &gt;70 dB</li>
+					</ul>
+				</div>
+
+			</div>
+		</section>
+
+		<!-- 06. SEGMENTOS -->
+		<section id="segmentos" class="section section-blanca">
+			<div class="container">
+
+				<div class="section-head">
+					<span class="text-label">Para quién</span>
+					<h2 class="section-title">Hecho para quienes viven la ciudad a pie</h2>
+				</div>
+
+				<div class="segments-grid">
+
+					<article class="segment-card">
+						<svg class="icon" aria-hidden="true"><use href="#i-book"/></svg>
+						<h3 class="segment-title">Peatones</h3>
+						<p class="segment-text">Llega a tu destino por calles con menos bocinas y tránsito.</p>
+					</article>
+
+					<article class="segment-card">
+						<svg class="icon" aria-hidden="true"><use href="#i-nav"/></svg>
+						<h3 class="segment-title">Estudiantes</h3>
+						<p class="segment-text">Deja de probar lugares al azar: elige dónde estudiar con datos.</p>
+					</article>
+
+					<article class="segment-card">
+						<svg class="icon" aria-hidden="true"><use href="#i-home"/></svg>
+						<h3 class="segment-title">Serenazgo</h3>
+						<p class="segment-text">Pasa de reaccionar a la denuncia a patrullar con datos.</p>
+					</article>
+
+				</div>
+
+			</div>
+		</section>
+
+		<!-- 07. MUNICIPALIDADES -->
+		<section id="municipalidad" class="section municipalidad">
+			<div class="container">
+				<div class="muni-grid">
+
+					<div>
+						<span class="text-label">Municipalidades</span>
+						<h2 class="section-title">Datos de ruido por zona y horario, para decidir dónde actuar.</h2>
+						<p class="section-lead">
+							SonoMapa reúne mediciones anónimas de la comunidad para complementar el monitoreo oficial
+							y ayudar a priorizar las zonas que más lo necesitan.
+						</p>
+						<!-- TODO: reemplazar por el correo o formulario de contacto real -->
+						<a href="mailto:hola@sonomapa.pe" class="boton boton-claro">Conversemos</a>
+					</div>
+
+					<ul class="muni-list">
+						<li>
+							<svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>
+							<div>
+								<strong>Mapa de calor por zona y horario</strong>
+								<span>Identifica dónde y cuándo el ruido es más alto.</span>
+							</div>
+						</li>
+						<li>
+							<svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>
+							<div>
+								<strong>Más puntos que el monitoreo tradicional</strong>
+								<span>Mediciones de la comunidad en calles que hoy no se miden.</span>
+							</div>
+						</li>
+						<li>
+							<svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>
+							<div>
+								<strong>Datos agregados y anónimos</strong>
+								<span>Sin audio ni datos personales de quienes aportan.</span>
+							</div>
+						</li>
+					</ul>
+
+				</div>
+			</div>
+		</section>
+
+		<!-- 08. EQUIPO -->
+		<section id="equipo" class="section section-alt">
+			<div class="container">
+
+				<div class="section-head">
+					<span class="text-label">Equipo</span>
+					<h2 class="section-title">Las personas detrás de SonoMapa</h2>
+				</div>
+
+				<!-- TODO: reemplazar iniciales por <img src="images/nombre.jpg" alt="Nombre"> y completar nombres/roles reales -->
+				<div class="team-grid">
+                    <article class="team-card">
+                        <div class="team-avatar" aria-hidden="true">N1</div>
+                        <h3 class="team-name">Nombre Apellido</h3>
+                        <p class="team-role">Rol en el proyecto</p>
+                    </article>
+                    <article class="team-card">
+                        <div class="team-avatar" aria-hidden="true">N2</div>
+                        <h3 class="team-name">Nombre Apellido</h3>
+                        <p class="team-role">Rol en el proyecto</p>
+                    </article>
+                    <article class="team-card">
+                        <div class="team-avatar" aria-hidden="true">N3</div>
+                        <h3 class="team-name">Nombre Apellido</h3>
+                        <p class="team-role">Rol en el proyecto</p>
+                    </article>
+                    <article class="team-card">
+                        <div class="team-avatar" aria-hidden="true">N4</div>
+                        <h3 class="team-name">Nombre Apellido</h3>
+                        <p class="team-role">Rol en el proyecto</p>
+                    </article>
+                    <article class="team-card">
+                        <div class="team-avatar" aria-hidden="true">N5</div>
+                        <h3 class="team-name">Nombre Apellido</h3>
+                        <p class="team-role">Rol en el proyecto</p>
+                    </article>
+                    <article class="team-card">
+                        <div class="team-avatar" aria-hidden="true">N6</div>
+                        <h3 class="team-name">Nombre Apellido</h3>
+                        <p class="team-role">Rol en el proyecto</p>
+                    </article>
+				</div>
+
+			</div>
+		</section>
+
+		<!-- 09. PREGUNTAS FRECUENTES -->
+		<section id="faq" class="section section-blanca">
+			<div class="container">
+
+				<div class="section-head">
+					<span class="text-label">Preguntas frecuentes</span>
+					<h2 class="section-title">Lo que más nos preguntan</h2>
+				</div>
+
+				<div class="faq-list">
+
+					<details class="faq-item">
+						<summary>¿SonoMapa graba lo que se dice a mi alrededor?</summary>
+						<p>No. La app no graba audio. Solo registra el nivel de ruido del momento en que mides.</p>
+					</details>
+
+					<details class="faq-item">
+						<summary>¿Mis mediciones son anónimas?</summary>
+						<p>Sí. Las mediciones se aportan de forma anónima y se muestran junto con las de otras personas.</p>
+					</details>
+
+					<details class="faq-item">
+						<summary>¿Cuánto cuesta?</summary>
+						<p>SonoMapa es gratis.</p>
+					</details>
+
+					<details class="faq-item">
+						<summary>¿Cuánto demora hacer una medición?</summary>
+						<p>Unos 30 segundos con tu celular. Entre más personas midan, más actualizado está el mapa.</p>
+					</details>
+
+					<details class="faq-item">
+						<summary>¿Hay versión para iPhone?</summary>
+						<p>Por ahora SonoMapa está disponible para Android.</p>
+					</details>
+
+					<details class="faq-item">
+						<summary>¿Mi municipalidad puede usar estos datos?</summary>
+						<p>Sí. Ofrecemos datos agregados y anónimos por zona y horario. Escríbenos y conversamos.</p>
+					</details>
+
+				</div>
+
+			</div>
+		</section>
+
+		<!-- 10. DESCARGA (CTA FINAL) -->
+		<section id="descargar" class="descargar">
+			<div class="container">
+				<h2>Empieza a elegir lugares tranquilos hoy.</h2>
+				<p>Descarga SonoMapa y consulta el ruido de tu próximo destino antes de salir.</p>
+				<!-- TODO: reemplazar # por el enlace real a Google Play -->
+				<a href="#" class="boton boton-claro">Descargar para Android</a>
+				<p class="text-caption">Gratis · No graba audio · Mediciones anónimas</p>
+			</div>
+		</section>
+
+	</main>
+
+	<!-- 11. FOOTER -->
+	<footer class="site-footer">
+		<div class="container footer-inner">
+			<a href="index.html" aria-label="SonoMapa, ir al inicio"><img src="images/IM2.png" alt="SonoMapa"></a>
+			<nav class="footer-links" aria-label="Pie de página">
+				<a href="#funciona">Cómo funciona</a>
+				<a href="#municipalidad">Municipalidades</a>
+				<a href="#equipo">Equipo</a>
+				<a href="#faq">Preguntas frecuentes</a>
+			</nav>
+			<p class="footer-copy">© 2026 SonoMapa · Lima, Perú</p>
+		</div>
+	</footer>
+
+</body>
 
 </html>
