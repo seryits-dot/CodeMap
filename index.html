@@ -44,6 +44,8 @@
 	11. Footer
 -->
 
+
+<script src="js/main.js"></script>
 <body>
 
 	<!-- Íconos (sprite SVG, sin dependencias externas) -->
@@ -75,6 +77,7 @@
 					<li><a href="#segmentos">Para quién</a></li>
 					<li><a href="#municipalidad">Municipalidades</a></li>
 					<li><a href="#equipo">Equipo</a></li>
+					<li><a href="#faq">Preguntas</a></li>
 				</ul>
 			</nav>
 
@@ -127,20 +130,13 @@
 				<div class="stats-grid">
 					<div class="stat-card">
 						<div class="stat-number">90%+</div>
-						<p class="stat-text">de los puntos monitoreados por el OEFA en Lima superan el estándar de ruido (PUCP, 2024)</p>
+						<p class="stat-text">de los puntos monitoreados por el OEFA en Lima superan el estándar de ruido (<a href="https://www.pucp.edu.pe/climadecambios/noticias/la-contaminacion-sonora-y-su-impacto-en-el-peru/" target="_blank" rel="noopener">OEFA 2015, vía PUCP 2024</a>)</p>
 					</div>
 
 					<div class="stat-card">
 						<div class="stat-number">10</div>
-						<p class="stat-text">puntos críticos de Lima superan los 80 dBA de forma continua (PUCP, 2024)</p>
+						<p class="stat-text">de los 224 puntos medidos en Lima superan los 80 dBA de forma continua (<a href="https://www.pucp.edu.pe/climadecambios/noticias/la-contaminacion-sonora-y-su-impacto-en-el-peru/" target="_blank" rel="noopener">OEFA 2015, vía PUCP 2024</a>)</p>
 					</div>
-
-					<div class="stat-card">
-						<div class="stat-number">3 de 3</div>
-						<p class="stat-text">estudiantes que entrevistamos tuvieron que cambiar de lugar de estudio por el ruido</p>
-					</div>
-				</div>
-
 			</div>
 		</section>
 
@@ -250,19 +246,19 @@
 				<div class="segments-grid">
 
 					<article class="segment-card">
-						<svg class="icon" aria-hidden="true"><use href="#i-book"/></svg>
+						<svg class="icon" aria-hidden="true"><use href="#i-route"/></svg>
 						<h3 class="segment-title">Peatones</h3>
 						<p class="segment-text">Llega a tu destino por calles con menos bocinas y tránsito.</p>
 					</article>
 
 					<article class="segment-card">
-						<svg class="icon" aria-hidden="true"><use href="#i-nav"/></svg>
+						<svg class="icon" aria-hidden="true"><use href="#i-book"/></svg>
 						<h3 class="segment-title">Estudiantes</h3>
 						<p class="segment-text">Deja de probar lugares al azar: elige dónde estudiar con datos.</p>
 					</article>
 
 					<article class="segment-card">
-						<svg class="icon" aria-hidden="true"><use href="#i-home"/></svg>
+						<svg class="icon" aria-hidden="true"><use href="#i-shield"/></svg>
 						<h3 class="segment-title">Serenazgo</h3>
 						<p class="segment-text">Pasa de reaccionar a la denuncia a patrullar con datos.</p>
 					</article>
@@ -285,7 +281,19 @@
 							y ayudar a priorizar las zonas que más lo necesitan.
 						</p>
 						<!-- TODO: reemplazar por el correo o formulario de contacto real -->
-						<a href="mailto:hola@sonomapa.pe" class="boton boton-claro">Conversemos</a>
+						<form class="muni-form" onsubmit="enviarContacto(event)" novalidate>
+							<label for="cNombre" class="campo-label">Municipalidad o entidad</label>
+							<input type="text" id="cNombre" class="campo" placeholder="Ej: Municipalidad de Miraflores">
+
+							<label for="cCorreo" class="campo-label">Correo de contacto</label>
+							<input type="email" id="cCorreo" class="campo" placeholder="nombre@municipalidad.gob.pe">
+
+							<label for="cMensaje" class="campo-label">Mensaje</label>
+							<textarea id="cMensaje" class="campo" rows="3" placeholder="Cuéntanos qué zonas te interesan"></textarea>
+
+							<button type="submit" class="boton boton-claro">Conversemos</button>
+							<p id="mensajeForm" class="form-msg" aria-live="polite"></p>
+						</form>
 					</div>
 
 					<ul class="muni-list">
@@ -329,32 +337,32 @@
 				<div class="team-grid">
                     <article class="team-card">
                         <div class="team-avatar" aria-hidden="true">N1</div>
-                        <h3 class="team-name">Nombre Apellido</h3>
+                        <h3 class="team-name">Jack Calsin</h3>
                         <p class="team-role">Rol en el proyecto</p>
                     </article>
                     <article class="team-card">
                         <div class="team-avatar" aria-hidden="true">N2</div>
-                        <h3 class="team-name">Nombre Apellido</h3>
+                        <h3 class="team-name">Josemanuel López</h3>
                         <p class="team-role">Rol en el proyecto</p>
                     </article>
                     <article class="team-card">
                         <div class="team-avatar" aria-hidden="true">N3</div>
-                        <h3 class="team-name">Nombre Apellido</h3>
+                        <h3 class="team-name">Sheila Angeles</h3>
                         <p class="team-role">Rol en el proyecto</p>
                     </article>
                     <article class="team-card">
                         <div class="team-avatar" aria-hidden="true">N4</div>
-                        <h3 class="team-name">Nombre Apellido</h3>
+                        <h3 class="team-name">Aaron Chipana</h3>
                         <p class="team-role">Rol en el proyecto</p>
                     </article>
                     <article class="team-card">
                         <div class="team-avatar" aria-hidden="true">N5</div>
-                        <h3 class="team-name">Nombre Apellido</h3>
+                        <h3 class="team-name">Manuel Razuri</h3>
                         <p class="team-role">Rol en el proyecto</p>
                     </article>
                     <article class="team-card">
                         <div class="team-avatar" aria-hidden="true">N6</div>
-                        <h3 class="team-name">Nombre Apellido</h3>
+                        <h3 class="team-name">Sergio Crisostomo</h3>
                         <p class="team-role">Rol en el proyecto</p>
                     </article>
 				</div>
@@ -375,32 +383,32 @@
 
 					<details class="faq-item">
 						<summary>¿SonoMapa graba lo que se dice a mi alrededor?</summary>
-						<p>No. La app no graba audio. Solo registra el nivel de ruido del momento en que mides.</p>
+						<p>No. La app no graba audio. Solo registra el nivel de ruido del momento en que mides, así que no se guarda ninguna conversación ni sonido del lugar.</p>
 					</details>
 
 					<details class="faq-item">
 						<summary>¿Mis mediciones son anónimas?</summary>
-						<p>Sí. Las mediciones se aportan de forma anónima y se muestran junto con las de otras personas.</p>
+						<p>Sí. Aportas sin audio ni datos personales, y tu medición se muestra junto con las de otras personas para construir el mapa entre todos.</p>
 					</details>
 
 					<details class="faq-item">
 						<summary>¿Cuánto cuesta?</summary>
-						<p>SonoMapa es gratis.</p>
+						<p>SonoMapa es gratis. Consultar el ruido de un lugar y aportar tus mediciones no tiene ningún costo.</p>
 					</details>
 
 					<details class="faq-item">
 						<summary>¿Cuánto demora hacer una medición?</summary>
-						<p>Unos 30 segundos con tu celular. Entre más personas midan, más actualizado está el mapa.</p>
+						<p>Unos 30 segundos con tu celular. Entre más personas midan, más actualizado está el mapa, por eso cada aporte cuenta.</p>
 					</details>
 
 					<details class="faq-item">
 						<summary>¿Hay versión para iPhone?</summary>
-						<p>Por ahora SonoMapa está disponible para Android.</p>
+						<p>Por ahora SonoMapa está disponible solo para Android. Puedes descargarla <a href="#descargar">aquí</a>.</p>
 					</details>
 
 					<details class="faq-item">
 						<summary>¿Mi municipalidad puede usar estos datos?</summary>
-						<p>Sí. Ofrecemos datos agregados y anónimos por zona y horario. Escríbenos y conversamos.</p>
+						<p>Sí. Ofrecemos datos agregados y anónimos por zona y horario, que complementan el monitoreo oficial para priorizar las zonas que más lo necesitan. Escríbenos desde la sección <a href="#municipalidad">Municipalidades</a> y conversamos.</p>
 					</details>
 
 				</div>
