@@ -248,7 +248,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 /* ---------- Problema ---------- */
 .stats-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 24px;
 }
 
@@ -590,6 +590,42 @@ ul { margin: 0; padding: 0; list-style: none; }
 .footer-links a { font-size: 14px; font-weight: 500; color: var(--muted); }
 .footer-links a:hover { color: var(--verde); }
 .footer-copy { font-size: 13px; color: var(--muted); }
+
+/* ---------- Formulario de contacto ---------- */
+.muni-form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.campo-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+}
+
+.campo {
+    width: 100%;
+    padding: 12px 14px;
+    font-family: var(--fuente);
+    font-size: 16px;
+    color: var(--pizarra);
+    background: var(--fondo);
+    border: 2px solid var(--borde);
+    border-radius: 10px;
+}
+.campo:focus { border-color: var(--verde); outline: none; }
+
+.muni-form textarea.campo { resize: vertical; }
+
+.muni-form .boton {
+    align-self: flex-start;
+    margin-top: 12px;
+}
+
+.form-msg { font-size: 15px; font-weight: 600; }
+.form-msg.error { color: #FBB8BE; }
+.form-msg.ok { color: #7FD1AE; }
 
 /* ==========================================================================
    Responsive
